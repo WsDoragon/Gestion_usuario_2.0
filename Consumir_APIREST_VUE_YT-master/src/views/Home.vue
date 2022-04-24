@@ -52,12 +52,17 @@ export default {
         axios.post('http://localhost:3001/login', json)
         .then( data =>{
           console.log(data);
-          if(data.data.length > 0){
+          if(data.data.length > 0 && data.data[0].rol_usuario == "Gerente"){
             //localStorage.token = data.data.result.token;
-            this.$router.push('dashboard');
-          }else{
+            this.$router.push('gerentePage');
+          }
+          if(data.data.length > 0 && data.data[0].rol_usuario == "analista"){
+            this.$router.push('analistaPage');
+          }
+
+          else{
             this.error = true;
-            this.error_msg = data.data.result.error_msg;
+            this.error_msg = data.data.message;
           }
         })
     }
