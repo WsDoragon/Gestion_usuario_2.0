@@ -18,7 +18,7 @@ const db = mysql.createConnection({
 
 app.post("/all", (req, res) => {
     db.query(
-        "SELECT * FROM usuario",
+        "SELECT * FROM usuario ORDER BY rut ASC",
         (err, result)=>{
             
             if (err){
@@ -41,7 +41,7 @@ app.post("/login", (req, res)=> {
     const password = req.body.password;
     console.log(username);
     db.query(
-        "SELECT * FROM usuario WHERE rut_usuario = ? AND contraseña_usuario = ?",
+        "SELECT * FROM usuario WHERE rut = ? AND contraseña = ?",
         [username, password],
         (err, result)=>{
             

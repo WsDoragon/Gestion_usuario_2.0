@@ -19,12 +19,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="usuario in Listapusuarios" :key="usuario.rut_usuario">
-                        <th scope="row">{{ usuario.rut_usuario}}</th>
-                        <td>{{ usuario.nombre_usuario }}</td>
-                        <td>{{ usuario.apellido_usuario }}</td>
-                        <td>{{ usuario.rol_usuario }}</td>
-                        <td>{{ usuario.correo_usuario }}</td>
+                    <tr v-for="usuario in Listapusuarios" :key="usuario.rut">
+                        <th scope="row">{{ usuario.rut}}</th>
+                        <td>{{ usuario.nombre }}</td>
+                        <td>{{ usuario.apellido }}</td>
+                        <td>{{ usuario.rol }}</td>
+                        <td>{{ usuario.correo }}</td>
                     </tr>
             
                 </tbody>

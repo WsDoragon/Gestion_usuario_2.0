@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuario` (
-  `rut_usuario` varchar(30) DEFAULT NULL,
-  `nombre_usuario` varchar(50) DEFAULT NULL,
-  `apellido_usuario` varchar(50) DEFAULT NULL,
-  `correo_usuario` varchar(50) DEFAULT NULL,
-  `contraseña_usuario` varchar(30) DEFAULT NULL,
-  `rol_usuario` varchar(50) DEFAULT NULL
+  `rut` varchar(30) DEFAULT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `apellido` varchar(50) DEFAULT NULL,
+  `correo` varchar(50) DEFAULT NULL,
+  `contraseña` varchar(30) DEFAULT NULL,
+  `rol` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,7 +38,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES ('15.294.647-3','Jose Joaquin','Anwandter Contreras','joaquin.contreras@uach.cl','jojoVV12','Gerente'),('20.318.537-5','jorge','gonzalez','jg@gmail.com','a','analista'),('16.542.971-0','Sonia Andrea','Villavicencio Vega','sonia.villavicencio@uach.cl','s','Analista de Datos'),('11.111.111-1','test1','ApTest1','test1@usuario.cl','t1','Gerente'),('22.222.222-2','test2','ApTest2','test2@usuario.cl','t2','analista');
+INSERT INTO `usuario` VALUES ('15.294.647-3','Jose Joaquin','Anwandter Contreras','joaquin.contreras@uach.cl','jojoVV12','Gerente'),('20.318.537-5','jorge','gonzalez','jg@gmail.com','a','administrador'),('16.542.971-0','Sonia Andrea','Villavicencio Vega','sonia.villavicencio@uach.cl','s','Analista de Datos'),('11.111.111-1','test1','ApTest1','test1@usuario.cl','t1','Gerente'),('22.222.222-2','test2','ApTest2','test2@usuario.cl','t2','analista');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

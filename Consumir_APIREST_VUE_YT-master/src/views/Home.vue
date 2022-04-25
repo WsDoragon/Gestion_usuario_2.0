@@ -54,11 +54,11 @@ export default {
           // Linea para desarrollo y verificar funcionamiento //
           console.log(data);
           
-          if(data.data.length > 0 && data.data[0].rol_usuario == "Gerente"){
+          if(data.data.length > 0 && data.data[0].rol == "Gerente"){
             //localStorage.token = data.data.result.token;
             this.$router.push('gerentePage');
           }
-          if(data.data.length > 0 && data.data[0].rol_usuario == "analista"){
+          if(data.data.length > 0 && data.data[0].rol == "analista"){
             this.$router.push('analistaPage');
           }
 
