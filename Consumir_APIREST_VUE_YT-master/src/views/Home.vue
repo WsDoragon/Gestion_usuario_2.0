@@ -51,7 +51,9 @@ export default {
         };
         axios.post('http://localhost:3001/login', json)
         .then( data =>{
+          // Linea para desarrollo y verificar funcionamiento //
           console.log(data);
+          
           if(data.data.length > 0 && data.data[0].rol_usuario == "Gerente"){
             //localStorage.token = data.data.result.token;
             this.$router.push('gerentePage');
