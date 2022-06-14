@@ -11,7 +11,7 @@ app.use(cors());
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
-    password: "a",
+    password: "2507",
     database:"gestion_usuario"
 });
 //-------------------------------------------------
@@ -60,6 +60,23 @@ app.post("/login", (req, res)=> {
     );
 });
 
+app.get("/todo", (req, res)=> {
+    db.query(
+        "SELECT * FROM usuarios",
+        (err, result)=>{
+            
+            if (err){
+                res.send({err: err});
+            }
+            
+            if (result.length>0){
+                res.send(result);
+                console.log("funciono hasta aqui");
+            }
+            
+        }
+    );
+});
 app.listen(3001, ()=>{
     console.log("running server");
 })
