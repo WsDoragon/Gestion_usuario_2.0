@@ -11,16 +11,17 @@ app.use(cors());
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
-    password: "a",
-    database:"gestion"
+    password: "2507",
+    database:"nodedb"
 });
 
 class usuarioMov {
     
     async create(formulario){
         const result = await db.query(
-            `INSERT INTO usuarios (rut,nombre,apellido,correo,contraseña) VALUES ("${formulario.RUT}", )`
+            `INSERT INTO usuarios (rut,nombre,apellido,correo,contraseña) VALUES ("${formulario.RUT}","${formulario.Nombre}","${formulario.Apellido}","${formulario.correo}","${formulario.contraseña}")`
         )
+        return result.affectedRows;
     }
 
 }

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import gerentP from '../views/gerentP.vue'
 import analistaP from '../views/analista.vue'
+import new_user from '../views/nuevo_user'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/analistaPage',
     name: 'analistaPage',
     component: analistaP
+  },
+  {
+    path: '/newUser',
+    name: 'newUser',
+    component: new_user
   }
 ]
 

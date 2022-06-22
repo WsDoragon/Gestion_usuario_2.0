@@ -76,12 +76,13 @@ export default {
     },
     methods:{
         guardar(){
-            this.form.token = localStorage.getItem("token");
-            axios.post("http://localhost:3001/create",this.form)
+            //this.form.token = localStorage.getItem("token");
+            //console.log(this.form);
+            axios.post("http://localhost:3001/users/create",this.form)
             .then(data =>{
                 console.log(data);
                 this.makeToast("Hecho","Usuario creado","success");
-                this.$router.push("/gerentP");
+                this.$router.push("/gerentePage");
             }).catch( e =>{
                 console.log(e);
                  this.makeToast("Error","Error al guardar","error");

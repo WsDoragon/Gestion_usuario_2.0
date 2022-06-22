@@ -11,8 +11,8 @@ app.use(cors());
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
-    password: "a",
-    database:"gestion"
+    password: "2507",
+    database:"nodedb"
 });
 //-------------------------------------------------
 
@@ -36,18 +36,24 @@ app.post("/all", (req, res) => {
     );
 });
 
-app.put("/create", (req, res) => {
-    const nombre = req.Nombre;
-    const apellido = req.Apellido;
-    const rut = req.rut;
-    const correo = req.correo;
-    const contraseña = req.contraseña;
+app.post("/create", (req, res) => {
+    const nombrea = req.body.Nombre;
+    const apellidoa = req.body.Apellido;
+    const ruta = req.body.RUT;
+    const correoa = req.body.correo;
+    const contraseñaa = req.body.contraseña;
+    //console.log(req);
     db.query(
-        'INSERT INTO usuarios (rut,nombre,apellido,correo,contraseña) VALUES (?,?,?,?,?)',
-        [nombre, apellido, rut, correo, contraseña],
+        `INSERT INTO usuarios (rut,nombre,apellido,correo,contraseña) VALUES ("${ruta}","${nombrea}","${apellidoa}","${correoa}","${contraseñaa}")`,
         (err,result) => {
+            console.log("AAAAAAAAAAAAA");
             if (err){
+                
                 res.send({err: err});
+            }
+            if (result.length>0){
+                console.log("funciono hasta aqui");
+                res.send(result.affectedRows);
             }
         }
     )
