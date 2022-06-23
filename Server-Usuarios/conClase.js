@@ -1,3 +1,6 @@
+const db = require('./db');
+const config = require('./config');
+
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
@@ -6,14 +9,6 @@ const app=express();
 
 app.use(express.json());
 app.use(cors());
-
-//Introducir credenciales para utilizar mysql local
-const db = mysql.createConnection({
-    user: "root",
-    host: "localhost",
-    password: "2507",
-    database:"nodedb"
-});
 
 class usuarioMov {
     
