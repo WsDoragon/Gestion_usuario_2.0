@@ -89,7 +89,7 @@ export default {
             })
         },
         salir(){
-            this.$router.push("/gerentP");
+            this.$router.push("/gerentePage");
         },
         makeToast(titulo,texto,tipo) {
             this.toastCount++

@@ -1,8 +1,8 @@
 const db = require('./db');
-const config = require('./config');
+//const config = require('./config');
 
 const express = require("express");
-const mysql = require("mysql");
+//const mysql = require("mysql");
 const cors = require("cors");
 
 const app=express();
@@ -27,6 +27,33 @@ class usuarioMov {
             WHERE rut = "${pepito.rut}"`
         )
         return result;
+    }
+
+    async getAll(){
+        const result = await db.query(`SELECT * FROM usuario`);
+        return result;
+    }
+
+    async deleteUser(id){
+        const result = await db.query(`delete from usuario where rut =${id}`);
+        //lo se... pero no me funciona con ";"
+        await db.query(`delete from rol_usuario where id_rut = ${id}`);
+        return result.affectedRows;
+    }
+
+    async editUser(id,form){
+        const result = await db.query(`update usuario set rut="${form.RUT}", nombre="${form.Nombre}", apellido="${form.Apellido}", correo="${form.correo}", contraseña="${form.contraseña}" WHERE rut = ${id}`)
+        return result.affectedRows;
+    }
+
+    async getUser(id){
+        const result = await db.query(`SELECT * FROM usuario WHERE rut = ${id}`);
+        return result;
+    }
+
+    async login(creds){
+        const a = 0;
+        return "hacerlo"
     }
 
 }
