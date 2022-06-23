@@ -98,24 +98,29 @@ CREATE TABLE IF NOT EXISTS `rol` (
 
 -- La exportación de datos fue deseleccionada.
 
+LOCK TABLES `rol` WRITE;
+/*!40000 ALTER TABLE `rol` DISABLE KEYS */;
+INSERT INTO `rol` VALUES (1,'Gerente'), (2,'Administrador'),(3,'Analista');
+/*!40000 ALTER TABLE `rol` ENABLE KEYS */;
+UNLOCK TABLES;
+
 -- Volcando estructura para tabla nodedb.rol_usuario
 CREATE TABLE IF NOT EXISTS `rol_usuario` (
-  `id_usuario` int(11) NOT NULL,
+  `id_rut` varchar(20) NOT NULL,
   `id_rol` int(11) NOT NULL,
-  PRIMARY KEY (`id_usuario`,`id_rol`)
+  PRIMARY KEY (`id_rut`,`id_rol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- La exportación de datos fue deseleccionada.
 
 -- Volcando estructura para tabla nodedb.usuarios
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `rut` varchar(30) NOT NULL DEFAULT '0',
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `rut`  varchar(20) UNIQUE NOT NULL DEFAULT '0',
   `nombre` varchar(255) NOT NULL DEFAULT '0',
   `apellido` varchar(255) NOT NULL DEFAULT '0',
   `correo` varchar(255) NOT NULL DEFAULT '0',
   `contraseña` varchar(30) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`rut`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- La exportación de datos fue deseleccionada.

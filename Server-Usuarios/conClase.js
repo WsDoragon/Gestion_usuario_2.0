@@ -14,9 +14,19 @@ class usuarioMov {
     
     async create(formulario){
         const result = await db.query(
-            `INSERT INTO usuarios (rut,nombre,apellido,correo,contraseña) VALUES ("${formulario.RUT}","${formulario.Nombre}","${formulario.Apellido}","${formulario.correo}","${formulario.contraseña}")`
+            `INSERT INTO usuario (rut,nombre,apellido,correo,contraseña) VALUES ("${formulario.RUT}","${formulario.Nombre}","${formulario.Apellido}","${formulario.correo}","${formulario.contraseña}")`
         )
         return result.affectedRows;
+    }
+
+    async getUserRol(pepito){
+        const result = await db.query(
+            `SELECT rut, nombre, apellido, correo, name FROM usuario 
+            JOIN rol_usuario ON rut = id_rut 
+            JOIN rol ON id = id_rol 
+            WHERE rut = "${pepito.rut}"`
+        )
+        return result;
     }
 
 }
