@@ -62,6 +62,7 @@ export default {
             },
             eliminar(id){
                 axios.delete(`http://localhost:3001/users/"${id}"`);
+                location.reload();
             }
             
             

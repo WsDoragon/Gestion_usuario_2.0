@@ -63,10 +63,10 @@ export default {
         return {
             form:{
                 "Nombre" : "",
-                "Apellido":"",
+                "Apellido" :"",
                 "RUT" : "",
-                "correo":"",
-                "contraseña":""
+                "correo" :"",
+                "contraseña" :""
             }
         }
     },
@@ -75,17 +75,20 @@ export default {
         //Footer
     },
     methods:{
+        sleep(ms){
+            return new Promise(resolve => setTimeout(resolve, ms));
+        },
         guardar(){
             //this.form.token = localStorage.getItem("token");
             //console.log(this.form);
             axios.post("http://localhost:3001/users/create",this.form)
             .then(data =>{
+                this.makeToast("Hecho","Usuario creado","info");
                 console.log(data);
-                this.makeToast("Hecho","Usuario creado","success");
-                this.$router.push("/gerentePage");
+                this.sleep(2000).then(() => { this.$router.push("/gerentePage"); });
             }).catch( e =>{
                 console.log(e);
-                 this.makeToast("Error","Error al guardar","error");
+                 this.makeToast("Error","Este usuario ya se encuentra registrado","error");
             })
         },
         salir(){
@@ -94,6 +97,7 @@ export default {
         makeToast(titulo,texto,tipo) {
             this.toastCount++
             this.$bvToast.toast(texto, {
+            toaster: "b-toaster-top-center",
             title: titulo,
             variant: tipo,
             autoHideDelay: 5000,
