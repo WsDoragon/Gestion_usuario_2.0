@@ -32,4 +32,6 @@ enrutador.get('/:id', async(req,res) => {
     res.json(await sUsuarios.getUser(req.params.id));
 });
 
+enrutador.post('/login', async(req,res) =>)
+
 module.exports = enrutador;
