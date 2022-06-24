@@ -53,8 +53,25 @@ class usuarioMov {
 
     async login(creds){
         const a = 0;
-        return "hacerlo"
+        let hehe = {
+            "rut": "",
+            "roles": {}
+        }
+        const result1 = await db.query(`SELECT * FROM usuario WHERE rut = "${creds.username} AND contraseña = "${creds.password}"`);
+        console.log("a fallar se a dicho")
+        if (result1.length>0){
+            const result2 = await db.query(`SELECT name from rol JOIN rol_usuario ON id = id_rol WHERE id_rut = "${creds.username}"`);
+            for (i of result2){
+                hehe.roles.put(result2[i]);
+            }
+            console.log("funcione")
+            return hehe;
+        }
+        else{
+            return({message: "Wrong username/password combination!"});
+        }
     }
+        
 
 }
 

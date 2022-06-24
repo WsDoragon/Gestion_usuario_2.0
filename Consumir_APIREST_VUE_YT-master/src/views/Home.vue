@@ -49,12 +49,12 @@ export default {
           "username" : this.usuario,
           "password": this.password
         };
-        axios.post('http://localhost:3001/login', json)
+        axios.post('http://localhost:3001/users/login', json)
         .then( data =>{
           // Linea para desarrollo y verificar funcionamiento //
           console.log(data);
           
-          if(data.data.length > 0 && data.data[0].rol == "Gerente"){
+          if(data.data.length > 0 && "Gerente" in data.data[0].rol){
             //localStorage.token = data.data.result.token;
             this.$router.push('gerentePage');
           }
