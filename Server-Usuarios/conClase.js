@@ -55,16 +55,16 @@ class usuarioMov {
         const a = 0;
         let hehe = {
             "rut": "",
-            "roles": {}
+            "roles": []
         }
-        const result1 = await db.query(`SELECT * FROM usuario WHERE rut = "${creds.username} AND contraseña = "${creds.password}"`);
-        console.log("a fallar se a dicho")
+        
+        const result1 = await db.query(`SELECT * FROM usuario WHERE rut = "${creds.username}" AND contraseña = "${creds.password}"`);
         if (result1.length>0){
             const result2 = await db.query(`SELECT name from rol JOIN rol_usuario ON id = id_rol WHERE id_rut = "${creds.username}"`);
-            for (i of result2){
-                hehe.roles.put(result2[i]);
+            hehe.rut = `${creds.username}`;
+            for (let i = 0; i<result2.length; i++){
+                hehe.roles[i] = result2[i]["name"];
             }
-            console.log("funcione")
             return hehe;
         }
         else{

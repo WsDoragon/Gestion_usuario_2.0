@@ -8,16 +8,11 @@ enrutador.post('/create', async (req, res) => {
 });
 
 enrutador.post('/login', async(req,res)=> {
-    res.json(await sUsuarios.login())
+    res.json(await sUsuarios.login(req.body))
 })
-
 
 enrutador.post('/GetRol', async (req, res) => {
     res.json(await sUsuarios.getUserRol(req.body));
-});
-
-enrutador.get('/all', async (req,res) => {
-    res.json(await sUsuarios.getAll());
 });
 
 enrutador.delete('/:id', async (req, res) => {
@@ -28,10 +23,12 @@ enrutador.put('/:id', async (req, res) => {
     res.json(await sUsuarios.editUser(req.params.id, req.body));
 });
 
+enrutador.get('/all', async (req,res) => {
+    res.json(await sUsuarios.getAll());
+});
+
 enrutador.get('/:id', async(req,res) => {
     res.json(await sUsuarios.getUser(req.params.id));
 });
-
-enrutador.post('/login', async(req,res) =>)
 
 module.exports = enrutador;
