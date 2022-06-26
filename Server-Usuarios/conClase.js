@@ -14,8 +14,9 @@ class usuarioMov {
     
     async create(formulario){
         const result = await db.query(
-            `INSERT INTO usuario (rut,nombre,apellido,correo,contraseña) VALUES ("${formulario.RUT}","${formulario.Nombre}","${formulario.Apellido}","${formulario.correo}","${formulario.contraseña}")`
+            `INSERT INTO usuario (rut,nombre,apellido,correo,contraseña) VALUES ("${formulario.rut}","${formulario.Nombre}","${formulario.Apellido}","${formulario.correo}","${formulario.contraseña}")`
         )
+        this.changeRolUser(formulario)
         return result.affectedRows;
     }
 
@@ -30,8 +31,23 @@ class usuarioMov {
     }
 
     async getAll(){
+        let json = [];
         const result = await db.query(`SELECT * FROM usuario`);
-        return result;
+        for (let i of result){
+            let rol ="-"
+            const result2 = await db.query(`SELECT name FROM rol_usuario
+                                            JOIN rol ON id=id_rol
+                                            WHERE id_rut = "${i.rut}"`);
+            //console.log (result2)
+            for(let j of result2){
+                rol = rol+j.name+"-";
+            }
+            let a = {"rut": i.rut, "nombre": i.nombre, "apellido":i.apellido, "correo": i.correo, "roles": rol};
+            json.push(a);
+        }
+        //console.log(json);
+        return json;
+        
     }
 
     async deleteUser(id){
@@ -41,8 +57,20 @@ class usuarioMov {
         return result.affectedRows;
     }
 
+    async changeRolUser(creds){
+        //console.log(creds);
+        const result = await db.query(`delete from rol_usuario WHERE id_rut = "${creds.rut}"`)
+        for(let i of creds.roles){
+            const result2 = await db.query(`INSERT INTO rol_usuario(id_rut, id_rol) Values ("${creds.rut}",${i})`)
+        }
+        
+    }
+
+
     async editUser(id,form){
-        const result = await db.query(`update usuario set rut="${form.RUT}", nombre="${form.Nombre}", apellido="${form.Apellido}", correo="${form.correo}", contraseña="${form.contraseña}" WHERE rut = ${id}`)
+        const result = await db.query(`update usuario set rut="${form.rut}", nombre="${form.Nombre}", apellido="${form.Apellido}", correo="${form.correo}", contraseña="${form.contraseña}" WHERE rut = ${id}`)
+        await db.query(`delete from rol_usuario WHERE id_rut = ${id}`)
+        this.changeRolUser(form)
         return result.affectedRows;
     }
 
@@ -70,6 +98,16 @@ class usuarioMov {
         else{
             return({message: "Wrong username/password combination!"});
         }
+    }
+    //Get all roles form DB
+    async getRoles(){
+        const result = await db.query(`SELECT * from rol`);
+        return result;
+    }
+
+    async getUserRoles(cred){
+        const result = await db.query(`SELECT id_rol from rol_usuario WHERE id_rut = ${cred}`);
+        return result;
     }
         
 

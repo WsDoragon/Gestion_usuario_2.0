@@ -61,14 +61,14 @@ export default {
             this.$router.push('gerentePage');
           }
 
-          if(data["data"]["rut"].length > 0 && data["data"]["roles"].includes("Analista")){
+          else{if(data["data"]["rut"].length > 0 && data["data"]["roles"].includes("Analista")){
             this.$router.push('analistaPage');
           }
 
           else{
             this.error = true;
             this.error_msg = data.data.message;
-          }
+          }}
           console.log("Pasó los if's")
         })
     }

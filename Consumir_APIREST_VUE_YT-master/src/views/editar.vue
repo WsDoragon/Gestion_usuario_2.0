@@ -27,7 +27,7 @@
                          <div class="col">
                             <label for="" class="control-label col-sm-2">RUT</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" name="RUT" id="RUT" v-model="form.RUT">
+                                <input type="text" class="form-control" name="rut" id="rut" v-model="form.rut">
                             </div>
                           </div>
                          <div class="col">
@@ -38,9 +38,16 @@
                         </div>
                     </div>
 
+                    <b-form-checkbox-group
+                    v-model="rolSelect"
+                    :options="rolOptions"
+                ></b-form-checkbox-group>
+                <p> IDs seleccionadas: {{rolSelect}}</p>
+
 
                     <div class="form-group">
-                      <button type="button" class="btn btn-primary" v-on:click="editar()" >Editar</button>
+                      <button type="button" class="btn btn-primary" v-on:click="editar()" >Guardar</button>
+                      
                       <button type="button" class="btn btn-dark margen" v-on:click="salir()"  >Salir</button>
                     </div> 
                 </form>
@@ -61,18 +68,21 @@ export default {
   },
   data:function(){
     return {
-        form:{
-            "lastRut":"",
-            "Nombre" : "",
-            "Apellido":"",
-            "RUT" : "",
-            "correo":"",
-            "contraseña":""
+        rolSelect : [],
+          rolOptions:[],
+          form:{
+              "Nombre" : "",
+              "Apellido" :"",
+              "rut" : "",
+              "correo" :"",
+              "contraseña" :"",
+              "roles" : []
         }
     }
   },
   methods:{
       editar(){
+        this.form.roles = this.rolSelect;
           axios.put(`http://localhost:3001/users/"${this.form.lastRut}"`,this.form)
           .then( data =>{
               console.log(data);
@@ -85,17 +95,37 @@ export default {
   },
   mounted:function(){
       this.form.lastRut = this.$route.params.id;
-      axios.get(`http://localhost:3001/users/"${this.form.lastRut}"`)
+      axios.get(`http://localhost:3001/users/u/"${this.form.lastRut}"`)
       .then( datos => {
         
         this.form.Nombre = datos.data[0].nombre;
         this.form.Apellido = datos.data[0].apellido;
-        this.form.RUT = datos.data[0].rut;
+        this.form.rut = datos.data[0].rut;
         this.form.correo = datos.data[0].correo;
         this.form.contraseña = datos.data[0].contraseña;
         console.log(this.form);
 
     })
+    axios.get(`http://localhost:3001/users/getroles`).
+          then(data => {
+              //console.log(data.data);
+              for (let i of data.data){
+                this.rolOptions.push({text: `${i.name}`, value: i.id});
+              }
+                //console.log("el array creado propio")
+                //console.log(this.options);
+        })
+    this.form.rut = this.$route.params.id;
+      axios.get(`http://localhost:3001/users/getuserrol/"${this.form.rut}"`)
+      .then( datos => {
+        //console.log(datos.data);
+        for (let j of datos.data){
+        this.rolSelect.push(j.id_rol);
+      }
+        //console.log(this.selected);
+
+    }
+    )
     
   }  
 }

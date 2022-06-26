@@ -17,6 +17,7 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellido</th>
                         <th scope="col">CORREO</th>
+                        <th scope="col">ROLES</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,7 @@
                         <td>{{ usuario.nombre }}</td>
                         <td>{{ usuario.apellido }}</td>
                         <td>{{ usuario.correo }}</td>
+                        <td>{{ usuario.roles }}</td>
                         
                     </tr>
             
@@ -46,6 +48,7 @@ export default {
     data(){
         return {
             Listapusuarios:null,
+
             pagina:1
         }
     },
@@ -61,7 +64,7 @@ export default {
                 this.$router.push('/newUser');
             },
             eliminar(id){
-                axios.delete(`http://localhost:3001/users/"${id}"`);
+                axios.delete(`http://localhost:3001/users/u/"${id}"`);
                 location.reload();
             }
             

@@ -15,8 +15,12 @@ enrutador.post('/GetRol', async (req, res) => {
     res.json(await sUsuarios.getUserRol(req.body));
 });
 
-enrutador.delete('/:id', async (req, res) => {
+enrutador.delete('/u/:id', async (req, res) => {
     res.json(await sUsuarios.deleteUser(req.params.id));
+});
+
+enrutador.post('/changeRol', async (req, res) => {
+    res.json(await sUsuarios.changeRolUser(req.body));
 });
 
 enrutador.put('/:id', async (req, res) => {
@@ -27,8 +31,16 @@ enrutador.get('/all', async (req,res) => {
     res.json(await sUsuarios.getAll());
 });
 
-enrutador.get('/:id', async(req,res) => {
+enrutador.get('/u/:id', async(req,res) => {
     res.json(await sUsuarios.getUser(req.params.id));
+});
+
+enrutador.get('/getuserrol/:id', async(req,res) => {
+    res.json(await sUsuarios.getUserRoles(req.params.id))
+});
+
+enrutador.get('/getroles', async(req,res) => {
+    res.json(await sUsuarios.getRoles())
 });
 
 module.exports = enrutador;

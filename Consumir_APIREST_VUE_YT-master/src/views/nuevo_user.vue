@@ -7,16 +7,18 @@
                 <form action="" class="form-horizontal">
                     <div class="form-group left">
                        <label for="" class="control-label col-sm-2">Nombre</label>
-                       <div class="col-sm-10">
+                       <div class="col-sm-7">
                           <input type="text" class="form-control" name="Nombre" id="Nombre" v-model="form.Nombre">
                        </div>
                     </div>
+                    
                     <div class="form-group left">
                        <label for="" class="control-label col-sm-2">Apellido</label>
-                       <div class="col-sm-10">
+                       <div class="col-sm-7">
                           <input type="text" class="form-control" name="Apellido" id="Apellido" v-model="form.Apellido">
                        </div>
                     </div>
+
                     <div class="form-group left row">
                       <div class="col">
                             <label for="" class="control-label col-sm-3">Correo</label>
@@ -24,13 +26,9 @@
                                 <input type="text" class="form-control" name="correo" id="correo" v-model="form.correo">
                             </div>
                         </div>
-                        <div class="col">
-                          <label for="" class="control-label col-sm-5">rut</label>
-                          <div class="col-sm-7">
-                              <input type="text" class="form-control" name="RUT" id="RUT" v-model="form.RUT">
-                          </div>
-                        </div> 
+
                     </div>
+                    
                     <div class="form-group left row">
                          <div class="col">
                               <label for="" class="control-label col-sm-2">contraseña</label>
@@ -38,14 +36,33 @@
                                   <input type="text" class="form-control" name="contraseña" id="contraseña" v-model="form.contraseña">
                               </div>
                         </div>
+                        <div class="col">
+                          <label for="" class="control-label col-sm-5">rut</label>
+                          <div class="col-sm-4">
+                              <input type="text" class="form-control" name="rut" id="rut" v-model="form.rut">
+                          </div>
+                        </div> 
                     </div>
+
+                    <b-form-checkbox-group
+                    v-model="rolSelect"
+                    :options="rolOptions"
+                ></b-form-checkbox-group>
+                <p> IDs seleccionadas: {{rolSelect}}</p>
+
 
 
                     <div class="form-group">
                       <button type="button" class="btn btn-primary" v-on:click="guardar()" >Guardar</button>
+                      <label> </label>
                       <button type="button" class="btn btn-dark margen" v-on:click="salir()"  >Salir</button>
-                    </div> 
+                    </div>
+                    
+                
+                    
                 </form>
+
+                
 
 
             </div>
@@ -61,12 +78,15 @@ export default {
     name:"Nuevo",
     data:function(){
         return {
+            rolSelect : [],
+            rolOptions:[],
             form:{
                 "Nombre" : "",
                 "Apellido" :"",
-                "RUT" : "",
+                "rut" : "",
                 "correo" :"",
-                "contraseña" :""
+                "contraseña" :"",
+                "roles" : []
             }
         }
     },
@@ -81,6 +101,7 @@ export default {
         guardar(){
             //this.form.token = localStorage.getItem("token");
             //console.log(this.form);
+            this.form.roles = this.rolSelect;
             axios.post("http://localhost:3001/users/create",this.form)
             .then(data =>{
                 this.makeToast("Hecho","Usuario creado","info");
@@ -105,6 +126,17 @@ export default {
             })
         }
         
+    },
+        mounted:function(){
+            axios.get(`http://localhost:3001/users/getroles`).
+            then(data => {
+                //console.log(data.data);
+                for (let i of data.data){
+                    this.rolOptions.push({text: `${i.name}`, value: i.id});
+                }
+                //console.log("el array creado propio")
+                //console.log(this.options);
+        })
     }
 }
 </script>

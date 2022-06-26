@@ -5,6 +5,7 @@ import gerentP from '../views/gerentP.vue'
 import analistaP from '../views/analista.vue'
 import new_user from '../views/nuevo_user'
 import editar from '../views/editar.vue'
+import editarRol from '../views/roles.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/editar/:id',
     name: 'editar',
     component: editar
+  },
+  {
+    path: '/editarRol/:id',
+    name: 'editarRol',
+    component: editarRol
   }
 ]
 
