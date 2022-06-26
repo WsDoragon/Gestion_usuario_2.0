@@ -11,10 +11,6 @@ enrutador.post('/login', async(req,res)=> {
     res.json(await sUsuarios.login(req.body))
 })
 
-enrutador.post('/GetRol', async (req, res) => {
-    res.json(await sUsuarios.getUserRol(req.body));
-});
-
 enrutador.delete('/u/:id', async (req, res) => {
     res.json(await sUsuarios.deleteUser(req.params.id));
 });

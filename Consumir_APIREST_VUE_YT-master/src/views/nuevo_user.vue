@@ -2,7 +2,6 @@
     <div>
         <Header />
             <div class="container">
-                
 
                 <form action="" class="form-horizontal">
                     <div class="form-group left">
@@ -72,7 +71,6 @@
 </template>
 <script>
 import Header from '@/components/Header.vue'
-//import Footer from '@/components/Footer.vue'
 import axios from 'axios';
 export default {
     name:"Nuevo",
@@ -99,8 +97,6 @@ export default {
             return new Promise(resolve => setTimeout(resolve, ms));
         },
         guardar(){
-            //this.form.token = localStorage.getItem("token");
-            //console.log(this.form);
             this.form.roles = this.rolSelect;
             axios.post("http://localhost:3001/users/create",this.form)
             .then(data =>{
@@ -130,12 +126,9 @@ export default {
         mounted:function(){
             axios.get(`http://localhost:3001/users/getroles`).
             then(data => {
-                //console.log(data.data);
                 for (let i of data.data){
                     this.rolOptions.push({text: `${i.name}`, value: i.id});
                 }
-                //console.log("el array creado propio")
-                //console.log(this.options);
         })
     }
 }

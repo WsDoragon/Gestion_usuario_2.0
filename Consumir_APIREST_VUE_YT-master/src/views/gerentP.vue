@@ -61,7 +61,12 @@ export default {
         Footer
     },
     methods:{
-            cerrar(){this.$router.push('/')},
+            cerrar(){
+                
+                this.$confirm("¿Seguro que quieres cerrar sesion?", "","warning",{confirmButtonText:"Si",cancelButtonText:"Cancelar"}).then(() => {
+                    this.$router.push('/')
+                });
+                },
             editar(id){
                 this.$router.push('/editar/' + id);
             },

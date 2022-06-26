@@ -4,9 +4,7 @@
 
             <div class="container izquierda">
 
-                
                 <br><br>
-
 
                 <table class="table table-hover">
                 <thead>
@@ -38,7 +36,6 @@
 <script>
 import Denegado from '@/components/Denegado.vue';
 import Footer from '@/components/Footer.vue';
-//import axios from 'axios';
 export default {
     name:"Dashboard",
     data(){

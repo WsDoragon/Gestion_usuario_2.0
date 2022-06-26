@@ -1,8 +1,5 @@
 const db = require('./db');
-//const config = require('./config');
-
 const express = require("express");
-//const mysql = require("mysql");
 const cors = require("cors");
 
 const app=express();
@@ -20,16 +17,6 @@ class usuarioMov {
         return result.affectedRows;
     }
 
-    async getUserRol(pepito){
-        const result = await db.query(
-            `SELECT rut, nombre, apellido, correo, name FROM usuario 
-            JOIN rol_usuario ON rut = id_rut 
-            JOIN rol ON id = id_rol 
-            WHERE rut = "${pepito.rut}"`
-        )
-        return result;
-    }
-
     async getAll(){
         let json = [];
         const result = await db.query(`SELECT * FROM usuario`);
@@ -38,27 +25,22 @@ class usuarioMov {
             const result2 = await db.query(`SELECT name FROM rol_usuario
                                             JOIN rol ON id=id_rol
                                             WHERE id_rut = "${i.rut}"`);
-            //console.log (result2)
             for(let j of result2){
                 rol = rol+j.name+"-";
             }
             let a = {"rut": i.rut, "nombre": i.nombre, "apellido":i.apellido, "correo": i.correo, "roles": rol};
             json.push(a);
         }
-        //console.log(json);
         return json;
-        
     }
 
     async deleteUser(id){
         const result = await db.query(`delete from usuario where rut =${id}`);
-        //lo se... pero no me funciona con ";"
         await db.query(`delete from rol_usuario where id_rut = ${id}`);
         return result.affectedRows;
     }
 
     async changeRolUser(creds){
-        //console.log(creds);
         const result = await db.query(`delete from rol_usuario WHERE id_rut = "${creds.rut}"`)
         for(let i of creds.roles){
             const result2 = await db.query(`INSERT INTO rol_usuario(id_rut, id_rol) Values ("${creds.rut}",${i})`)
@@ -109,8 +91,6 @@ class usuarioMov {
         const result = await db.query(`SELECT id_rol from rol_usuario WHERE id_rut = ${cred}`);
         return result;
     }
-        
-
 }
 
 module.exports = {

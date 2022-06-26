@@ -1,10 +1,11 @@
 var express = require('express');
 var app = express();
-//var server = require('http').Server(app);
 const cors = require("cors");
+
 // Rutas
 const rUsuarios = require('./rFunc');
 app.use(cors());
+
 // Config
 const PORT = 3001
 
@@ -14,6 +15,7 @@ app.use(
       extended: true,
     })
   );
+  
 // end-points
 app.get('/', function(_req, res){
     console.log('alguien pide');

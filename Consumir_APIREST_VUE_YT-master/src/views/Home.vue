@@ -16,7 +16,7 @@
                   <input type="submit" class="fadeIn fourth" value="Log In">
                 </form>
 
-                <!-- Remind Passowrd -->
+                <!-- wrong user -->
                 <div class="alert alert-danger" role="alert" v-if="error">
                   {{error_msg}}
                 </div>
@@ -53,18 +53,13 @@ export default {
 
         axios.post('http://localhost:3001/users/login', json)
         .then( data =>{
-          // Linea para desarrollo y verificar funcionamiento //
-          console.log(data);
-
           if(data["data"]["rut"].length > 0 && data["data"]["roles"].includes("Gerente")){
-            //localStorage.token = data.data.result.token;
             this.$router.push('gerentePage');
           }
-
           else{if(data["data"]["rut"].length > 0 && data["data"]["roles"].includes("Analista")){
             this.$router.push('analistaPage');
           }
-
+          
           else{
             this.error = true;
             this.error_msg = data.data.message;
