@@ -113,6 +113,12 @@ CREATE TABLE IF NOT EXISTS `rol_usuario` (
 
 -- La exportación de datos fue deseleccionada.
 
+LOCK TABLES `rol_usuario` WRITE;
+/*!40000 ALTER TABLE `rol_usuario` DISABLE KEYS */;
+INSERT INTO `rol_usuario` VALUES ("1234567-8",1);
+/*!40000 ALTER TABLE `rol_usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+
 -- Volcando estructura para tabla nodedb.usuarios
 CREATE TABLE IF NOT EXISTS `usuario` (
   `rut`  varchar(20) UNIQUE NOT NULL DEFAULT '0',
@@ -124,6 +130,12 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- La exportación de datos fue deseleccionada.
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES ("1234567-8","Test1","T","T","T");
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
