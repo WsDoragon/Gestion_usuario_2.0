@@ -85,9 +85,21 @@ export default {
         this.form.roles = this.rolSelect;
           axios.put(`http://localhost:3001/users/"${this.form.lastRut}"`,this.form)
           .then( data =>{
+              this.makeToast("Hecho","Usuario guardado","info");
               console.log(data);
+              this.sleep(2000).then(() => { this.$router.push("/gerentePage"); });
           })
       },
+      makeToast(titulo,texto,tipo) {
+            this.toastCount++
+            this.$bvToast.toast(texto, {
+            toaster: "b-toaster-top-center",
+            title: titulo,
+            variant: tipo,
+            autoHideDelay: 5000,
+            appendToast: true
+            })
+        },
       salir(){
         this.$router.push("/gerentePage");
       }

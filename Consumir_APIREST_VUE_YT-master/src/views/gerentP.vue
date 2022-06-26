@@ -1,4 +1,5 @@
 <template>
+
     <div>
         <Header/>
 
@@ -43,6 +44,10 @@
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 import axios from 'axios';
+import Vue from "vue"
+import VueSimpleAlert from "vue-simple-alert";
+Vue.use(VueSimpleAlert);
+
 export default {
     name:"Dashboard",
     data(){
@@ -64,10 +69,12 @@ export default {
                 this.$router.push('/newUser');
             },
             eliminar(id){
-                axios.delete(`http://localhost:3001/users/u/"${id}"`);
-                location.reload();
+                this.$confirm("¿Seguro que quieres eliminar este usuario?", "","warning").then(() => {
+                        console.log(id);
+                        axios.delete(`http://localhost:3001/users/u/"${id}"`);
+                        location.reload();
+                    });
             }
-            
             
     },
     mounted:function(){
