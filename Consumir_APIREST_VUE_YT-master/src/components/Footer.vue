@@ -2,9 +2,7 @@
 
         <div>
             <footer>
-
-               VUENARDO
-
+                Gerente
              </footer>
 
         </div>
@@ -13,10 +11,10 @@
 <style  scoped>
 footer {
     position: fixed;
-    height: 100px;
+    height: 50px;
     bottom: 0;
     width: 100%;
     background-color: black;
-    color: blanchedalmond;
+    color: white;
 }
 </style>

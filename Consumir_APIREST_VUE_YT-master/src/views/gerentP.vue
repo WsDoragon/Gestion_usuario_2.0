@@ -1,13 +1,12 @@
 <template>
-
     <div>
         <Header/>
 
             <div class="container izquierda">
+                <div class="derecha"><button class="btn btn-warning" v-on:click="cerrar()">cerrar sesion</button></div>
 
                 <button class="btn btn-primary" v-on:click="nuevo()" >Nuevo Usuario</button>
                 <br><br>
-
 
                 <table class="table table-hover">
                 <thead>
@@ -62,6 +61,7 @@ export default {
         Footer
     },
     methods:{
+            cerrar(){this.$router.push('/')},
             editar(id){
                 this.$router.push('/editar/' + id);
             },
@@ -69,7 +69,7 @@ export default {
                 this.$router.push('/newUser');
             },
             eliminar(id){
-                this.$confirm("¿Seguro que quieres eliminar este usuario?", "","warning").then(() => {
+                this.$confirm("¿Seguro que quieres eliminar este usuario?", "","warning",{confirmButtonText:"Si",cancelButtonText:"Cancelar"}).then(() => {
                         console.log(id);
                         axios.delete(`http://localhost:3001/users/u/"${id}"`);
                         location.reload();
@@ -89,5 +89,8 @@ export default {
 <style  scoped>
     .izquierda{
         text-align: left;
+    }
+    .derecha{ 
+        text-align: right;
     }
 </style>
