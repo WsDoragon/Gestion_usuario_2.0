@@ -80,6 +80,9 @@ export default {
     }
   },
   methods:{
+      sleep(ms){
+            return new Promise(resolve => setTimeout(resolve, ms));
+      },
       editar(){
         this.form.roles = this.rolSelect;
           axios.put(`http://localhost:3001/users/"${this.form.lastRut}"`,this.form)
