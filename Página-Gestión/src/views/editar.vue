@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group left row">
                          <div class="col">
-                            <label for="" class="control-label col-sm-2">RUT</label>
+                            <label for="" class="control-label col-sm-7">RUT (sin puntos, con guión)</label>
                             <div class="col-sm-7">
                                 <input type="text" class="form-control" name="rut" id="rut" v-model="form.rut">
                             </div>

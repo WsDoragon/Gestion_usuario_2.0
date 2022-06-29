@@ -30,13 +30,13 @@
                     
                     <div class="form-group left row">
                          <div class="col">
-                              <label for="" class="control-label col-sm-2">contraseña</label>
+                              <label for="" class="control-label col-sm-2">Contraseña</label>
                               <div class="col-sm-7">
                                   <input type="text" class="form-control" name="contraseña" id="contraseña" v-model="form.contraseña">
                               </div>
                         </div>
                         <div class="col">
-                          <label for="" class="control-label col-sm-5">rut</label>
+                          <label for="" class="control-label col-sm-7">RUT (sin puntos, con guión)</label>
                           <div class="col-sm-4">
                               <input type="text" class="form-control" name="rut" id="rut" v-model="form.rut">
                           </div>

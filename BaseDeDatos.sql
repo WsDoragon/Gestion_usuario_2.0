@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `rol_usuario` (
 
 LOCK TABLES `rol_usuario` WRITE;
 /*!40000 ALTER TABLE `rol_usuario` DISABLE KEYS */;
-INSERT INTO `rol_usuario` VALUES ("1234567-8",1);
+INSERT INTO `rol_usuario` VALUES ("17270745-9",1);
 /*!40000 ALTER TABLE `rol_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES ("1234567-8","Test1","T","T","T");
+INSERT INTO `usuario` VALUES ("17270745-9","Joaquin","Contreras","joaquin.contreras@uach.cl","J2022");
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 

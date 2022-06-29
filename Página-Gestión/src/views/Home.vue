@@ -11,8 +11,8 @@
 
                 <!-- Login Form -->
                 <form v-on:submit.prevent="login">
-                  <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario" v-model="usuario">
-                  <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password" v-model="password">
+                  <input type="text" id="login" class="fadeIn second" name="login" placeholder="RUT (sin puntos, con guión)" v-model="usuario">
+                  <input type="text" id="password" class="fadeIn third" name="login" placeholder="Contraseña" v-model="password">
                   <input type="submit" class="fadeIn fourth" value="Log In">
                 </form>
 
