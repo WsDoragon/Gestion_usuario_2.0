@@ -3,16 +3,27 @@
       <div class="wrapper fadeInDown">
               <div id="formContent">
                 <!-- Tabs Titles -->
+                
 
                 <!-- Icon -->
                 <div class="fadeIn first pad">
                   <img src="@/assets/logoA.png" id="icon" alt="User Icon" />
                 </div>
 
+
                 <!-- Login Form -->
                 <form v-on:submit.prevent="login">
-                  <input type="text" id="login" class="fadeIn second" name="login" placeholder="RUT (sin puntos, con guión)" v-model="usuario">
-                  <input  type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña" v-model="password">
+
+                  <div class="form-group left btn">
+                    <label for="" class="control-label col-sm-9">RUT (sin puntos, con guión):</label>
+                    <input type="text" id="login" class="fadeIn second" name="login" placeholder="RUT (sin puntos, con guión)" v-model="usuario">
+                  </div>
+
+                  <div class="form-group left btn">
+                    <label for="" class="control-label col-sm-7">Contraseña:</label>
+                    <input type="password" id="password" class="fadeIn third control-label col-sm-100" name="login" placeholder="Contraseña" v-model="password">
+                  </div>
+
                   <input type="submit" class="fadeIn fourth" value="Log In">
                 </form>
 
@@ -73,6 +84,14 @@ export default {
 
 
 <style scoped>
+
+.btn{
+  margin-left :50px
+}
+.left{
+    text-align: left;
+}
+
 
 
 /* BASIC */

@@ -5,7 +5,7 @@
             <div class="container izquierda">
                 <div class="derecha"><button class="btn btn-warning" v-on:click="cerrar()">Cerrar sesión</button></div>
 
-                <button class="btn btn-primary" v-on:click="nuevo()" >Crear Nuevo Usuario</button>
+                <button class="btn btn-primary" v-on:click="nuevo()" >Añadir nuevo usuario</button>
                 <br><br>
 
                 <table class="table table-hover">

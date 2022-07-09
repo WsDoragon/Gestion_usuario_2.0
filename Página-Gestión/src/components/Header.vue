@@ -7,7 +7,7 @@
             
             <img :src="mySVG" width="180"/>
           </b-navbar-brand>
-          <label class="razor">Usuarios/{{$route.name}}</label>
+          <label class="razor">{{$route.name}}</label>
           <user/>
       </b-navbar>
         <br><br>
