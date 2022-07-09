@@ -10,11 +10,18 @@ app.use(cors());
 class usuarioMov {
     
     async create(formulario){
-        const result = await db.query(
-            `INSERT INTO usuario (rut,nombre,apellido,correo,contraseña) VALUES ("${formulario.rut}","${formulario.Nombre}","${formulario.Apellido}","${formulario.correo}","${formulario.contraseña}")`
-        )
-        this.changeRolUser(formulario)
-        return result.affectedRows;
+        try{
+            const result = await db.query(
+                `INSERT INTO usuario (rut,nombre,apellido,correo,contraseña) VALUES ("${formulario.rut}","${formulario.Nombre}","${formulario.Apellido}","${formulario.correo}","${formulario.contraseña}")`
+            )
+            this.changeRolUser(formulario)
+            console.log(result.affectedRows);
+            return result.affectedRows;
+        }
+        catch (error) {
+            console.log(`error es: \n ${error}`);
+            return error;
+        }
     }
 
     async getAll(){

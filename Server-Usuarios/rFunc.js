@@ -4,10 +4,20 @@ const servicios = require('./conClase');
 const sUsuarios = new servicios.usuarioMov();
 
 enrutador.post('/create', async (req, res) => {
-    res.json(await sUsuarios.create(req.body));
+    a = await sUsuarios.create(req.body) 
+
+    console.log(`se recibe: +${a}`);
+    if (a == 1){
+        res.json(a);
+    }
+    else{
+        console.log("aaaaaa")
+        res.status(409).send('Something broke!');
+    }
 });
 
 enrutador.post('/login', async(req,res)=> {
+    
     res.json(await sUsuarios.login(req.body))
 })
 

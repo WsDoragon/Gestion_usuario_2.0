@@ -3,9 +3,9 @@
         <Header/>
 
             <div class="container izquierda">
-                <div class="derecha"><button class="btn btn-warning" v-on:click="cerrar()">cerrar sesion</button></div>
+                <div class="derecha"><button class="btn btn-warning" v-on:click="cerrar()">Cerrar sesión</button></div>
 
-                <button class="btn btn-primary" v-on:click="nuevo()" >Nuevo Usuario</button>
+                <button class="btn btn-primary" v-on:click="nuevo()" >Crear Nuevo Usuario</button>
                 <br><br>
 
                 <table class="table table-hover">
@@ -63,7 +63,7 @@ export default {
     methods:{
             cerrar(){
                 
-                this.$confirm("¿Seguro que quieres cerrar sesion?", "","warning",{confirmButtonText:"Si",cancelButtonText:"Cancelar"}).then(() => {
+                this.$confirm("¿Seguro que desea cerrar sesión?", "","warning",{confirmButtonText:"Si",cancelButtonText:"Cancelar"}).then(() => {
                     this.$router.push('/')
                 });
                 },
@@ -74,7 +74,7 @@ export default {
                 this.$router.push('/newUser');
             },
             eliminar(id){
-                this.$confirm("¿Seguro que quieres eliminar este usuario?", "","warning",{confirmButtonText:"Si",cancelButtonText:"Cancelar"}).then(() => {
+                this.$confirm("¿Seguro que desea eliminar a este usuario?", "","warning",{confirmButtonText:"Si",cancelButtonText:"Cancelar"}).then(() => {
                         console.log(id);
                         axios.delete(`http://localhost:3001/users/u/"${id}"`);
                         location.reload();

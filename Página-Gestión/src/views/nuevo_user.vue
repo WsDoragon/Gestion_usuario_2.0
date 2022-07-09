@@ -42,12 +42,12 @@
                           </div>
                         </div> 
                     </div>
-
+                    <br>Roles:<br>
                     <b-form-checkbox-group
                     v-model="rolSelect"
                     :options="rolOptions"
                 ></b-form-checkbox-group>
-                <p> IDs seleccionadas: {{rolSelect}}</p>
+                <br><br>
 
 
 
@@ -134,6 +134,9 @@ export default {
 }
 </script>
 <style scoped>
+.btn{
+  margin-left :5px
+}
 .left{
     text-align:  left;
 }

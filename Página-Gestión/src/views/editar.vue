@@ -5,13 +5,13 @@
                 <form action="" class="form-horizontal">
                     <div class="form-group left">
                        <label for="" class="control-label col-sm-2">Nombre</label>
-                       <div class="col-sm-10">
+                       <div class="col-sm-7">
                           <input type="text" class="form-control" name="nombre" id="nombre" v-model="form.Nombre">
                        </div>
                     </div>
                     <div class="form-group left">
                        <label for="" class="control-label col-sm-2">Apellido</label>
-                       <div class="col-sm-10">
+                       <div class="col-sm-7">
                           <input type="text" class="form-control" name="Apellido" id="Apellido" v-model="form.Apellido">
                        </div>
                     </div>
@@ -24,28 +24,29 @@
                         </div>
                     </div>
                     <div class="form-group left row">
-                         <div class="col">
-                            <label for="" class="control-label col-sm-7">RUT (sin puntos, con guión)</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" name="rut" id="rut" v-model="form.rut">
-                            </div>
-                          </div>
-                         <div class="col">
+                          <div class="col">
                               <label for="" class="control-label col-sm-2">Contraseña</label>
                               <div class="col-sm-7">
                                   <input type="text" class="form-control" name="contraseña" id="contraseña" v-model="form.contraseña">
                               </div>
-                        </div>
+                          </div>
+                         <div class="col">
+                            <label for="" class="control-label col-sm-7">RUT (sin puntos, con guión)</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="rut" id="rut" v-model="form.rut">
+                            </div>
+                          </div>
+                         
                     </div>
-
+                    <br>Roles:<br>
                     <b-form-checkbox-group
                     v-model="rolSelect"
                     :options="rolOptions"
                 ></b-form-checkbox-group>
-                <p> IDs seleccionadas: {{rolSelect}}</p>
+                <br><br>
 
 
-                    <div class="form-group">
+                    <div class="form-group flex pad">
                       <button type="button" class="btn btn-primary" v-on:click="editar()" >Guardar</button>
                       
                       <button type="button" class="btn btn-dark margen" v-on:click="salir()"  >Salir</button>
@@ -139,11 +140,20 @@ export default {
 }
 </script>
 <style scoped>
+.btn{
+  margin-left :5px
+}
  .left{
    text-align: left;
  };
  .margen{
    margin-left: 15px;
-   margin-right: 15px;;
+   margin-right: 50px;;
  }
+ .pad{
+  padding:10px;
+  padding-block-end: 10px;
+ }
+
+ 
 </style>
