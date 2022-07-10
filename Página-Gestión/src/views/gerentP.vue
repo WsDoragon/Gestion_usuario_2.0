@@ -2,8 +2,41 @@
     <div>
         <Header/>
 
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <button class="btn btnbarra" v-on:click="texto('mostrar1')">Home</button>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <button class="btn btnbarra" v-on:click="texto('mostrar2')">Opción 2</button>
+              </a>
+            </li>
+            
+
+        </ul>  
+        </div>
+    </nav>
+
+    
+    <label v-if="this.a['mostrar2']==true">
+    <br><br>
+        Coloque aquí funcionalidades
+    </label>
+
 <br><br>
-            <div class="container izquierda">
+            
+            <div  v-if="this.a['mostrar1']==true" class="container izquierda">
             
                 <button class="btn btn-primary" v-on:click="nuevo()" >Añadir nuevo usuario</button>
                 <br><br>
@@ -52,6 +85,9 @@ export default {
     data(){
         return {
             Listapusuarios:null,
+            mostrar:false,
+            mostrar2:false,
+            a:{"mostrar1" : false, "mostrar2":false},
 
             pagina:1
         }
@@ -73,6 +109,17 @@ export default {
                         axios.delete(`http://localhost:3001/users/u/"${id}"`);
                         location.reload();
                     });
+            },
+            texto(b){
+                if(this.a[b] == true){
+                    this.a[b] = false;
+                }
+                else{
+                    for(let i in this.a){
+                        this.a[i]=false;
+                    }
+                    this.a[b] = true;
+                }
             }
             
     },
@@ -86,6 +133,11 @@ export default {
 }
 </script>
 <style  scoped>
+    .btnbarra {
+    color: #000;
+    background-color: #FAD786;
+    font-weight: bold;
+    }
     .izquierda{
         text-align: left;
     }

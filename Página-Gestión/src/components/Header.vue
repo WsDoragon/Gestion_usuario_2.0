@@ -27,7 +27,7 @@
 
         <th> 
            <b-navbar-brand>
-            <div class="derecha"><button class="btn btn-warning" v-on:click="cerrar()">Cerrar sesión</button></div>
+            <div class="derecha"><button class="btn btnbarra" v-on:click="cerrar()">Cerrar sesión</button></div>
           </b-navbar-brand>
         </th>
 
@@ -91,6 +91,12 @@ th, td {
 
 .derecha{ 
         text-align: right;
+    }
+
+    .btnbarra {
+    color: #000;
+    background-color: #FFA859;
+    font-weight: bold;
     }
 
 </style>

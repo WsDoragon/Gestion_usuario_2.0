@@ -4,7 +4,7 @@
         <Header/>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,13 +14,13 @@
 
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <button class="btn btn" v-on:click="texto('mostrar1')">Home admin</button>
+                <button class="btn btnbarra" v-on:click="texto('mostrar1')">Home admin</button>
               </a>
             </li>
 
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <button class="btn btn" v-on:click="texto('mostrar2')">Opción 2</button>
+                <button class="btn btnbarra" v-on:click="texto('mostrar2')">Opción 2</button>
               </a>
             </li>
             
@@ -89,6 +89,12 @@ export default {
             text-align: center;
             
         }
+
+    .btnbarra {
+    color: #000;
+    background-color: #9EA3E6;
+    font-weight: bold;
+    }
 
     .izquierda{
         text-align: left;
