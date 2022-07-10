@@ -1,16 +1,40 @@
 <template>
 
 <div>
-      <b-navbar toggleable="lg" type="light" style="background-color: #000000
-;">
+      <b-navbar toggleable="lg" type="dark" style="background-color: #000000
+;">       
+        <th>
+          <img :src="mySVG" width="180"/>
+        </th>
+          
+        <th> 
           <b-navbar-brand href="http://localhost:8080/gerentePage">
-            
-            <img :src="mySVG" width="180"/>
+            Gerente
           </b-navbar-brand>
-          <label class="razor">{{$route.name}}</label>
+        </th>
+
+        <th> 
+           <b-navbar-brand href="http://localhost:8080/analistaPage">
+            Analista
+          </b-navbar-brand>
+        </th>
+
+        <th> 
+           <b-navbar-brand href="http://localhost:8080/administradorPage">
+            Administrador
+          </b-navbar-brand>
+        </th>
+
+        <th> 
+           <b-navbar-brand>
+            <div class="derecha"><button class="btn btn-warning" v-on:click="cerrar()">Cerrar sesión</button></div>
+          </b-navbar-brand>
+        </th>
+
+          
           <user/>
       </b-navbar>
-        <br><br>
+        
 </div>
     
 </template>
@@ -26,10 +50,19 @@ export default {
       
     }
   },
+   methods:{
+            cerrar(){
+                
+                this.$confirm("¿Seguro que desea cerrar sesión?", "","warning",{confirmButtonText:"Si",cancelButtonText:"Cancelar"}).then(() => {
+                    this.$router.push('/')
+                });
+                }
+   },
   mounted:function(){
 
   }
 }
+
 </script>
 
 <style  scoped>
@@ -48,5 +81,16 @@ b-navbar-brand {
   font-size:x-large;
   color: white;
 }
+
+th, td {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+.derecha{ 
+        text-align: right;
+    }
 
 </style>

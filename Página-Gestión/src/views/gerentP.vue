@@ -2,9 +2,9 @@
     <div>
         <Header/>
 
+<br><br>
             <div class="container izquierda">
-                <div class="derecha"><button class="btn btn-warning" v-on:click="cerrar()">Cerrar sesión</button></div>
-
+            
                 <button class="btn btn-primary" v-on:click="nuevo()" >Añadir nuevo usuario</button>
                 <br><br>
 
@@ -61,12 +61,6 @@ export default {
         Footer
     },
     methods:{
-            cerrar(){
-                
-                this.$confirm("¿Seguro que desea cerrar sesión?", "","warning",{confirmButtonText:"Si",cancelButtonText:"Cancelar"}).then(() => {
-                    this.$router.push('/')
-                });
-                },
             editar(id){
                 this.$router.push('/editar/' + id);
             },

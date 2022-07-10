@@ -14,7 +14,7 @@
 
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <button class="btn btn" v-on:click="texto('mostrar1')">Links</button>
+                <button class="btn btn" v-on:click="texto('mostrar1')">Home admin</button>
               </a>
             </li>
 

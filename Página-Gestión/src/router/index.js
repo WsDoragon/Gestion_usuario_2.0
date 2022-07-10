@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import gerentP from '../views/gerentP.vue'
 import analistaP from '../views/analista.vue'
+import administradorP from '../views/administrador.vue'
 import new_user from '../views/nuevo_user'
 import editar from '../views/editar.vue'
 
@@ -23,6 +24,11 @@ const routes = [
     path: '/analistaPage',
     name: 'analistaPage',
     component: analistaP
+  },
+  {
+    path: '/administradorPage',
+    name: 'administradorPage',
+    component: administradorP
   },
   {
     path: '/newUser',
