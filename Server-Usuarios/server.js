@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 const cors = require("cors");
+const db = require('./db');
 
 // Rutas
 const rUsuarios = require('./rFunc');

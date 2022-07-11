@@ -2,6 +2,7 @@ const express = require('express');
 const enrutador = express.Router();
 const servicios = require('./conClase');
 const sUsuarios = new servicios.usuarioMov();
+const sLinks = new servicios.links();
 
 enrutador.post('/create', async (req, res) => {
     a = await sUsuarios.create(req.body) 
@@ -29,8 +30,18 @@ enrutador.post('/changeRol', async (req, res) => {
     res.json(await sUsuarios.changeRolUser(req.body));
 });
 
+enrutador.post('/nuevoLink', async(req,res)=>{
+    res.json(await sLinks.saveLink(req.body.id, req.body.date));
+});
+
+
+
 enrutador.put('/:id', async (req, res) => {
     res.json(await sUsuarios.editUser(req.params.id, req.body));
+});
+
+enrutador.get('/GetLinks', async (req,res) => {
+    res.json(await sLinks.getAll());
 });
 
 enrutador.get('/all', async (req,res) => {

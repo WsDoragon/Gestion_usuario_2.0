@@ -100,6 +100,32 @@ class usuarioMov {
     }
 }
 
+class links{
+    async saveLink(id, date){
+        try{
+            const result = await db.query(
+                `INSERT INTO Links (id,expirationDate) VALUES ("${id}","${date}")`
+            )
+            return result.affectedRows;
+        }
+        catch (error) {
+            console.log(`error es: \n ${error}`);
+            return error;
+        }
+    }
+
+    async getAll(){
+        let json = [];
+        const result = await db.query(`SELECT * FROM Links`);
+        for (let i of result){
+          let a= {"id": i.id, "expirationDate":i.expirationDate };
+          json.push(a);
+      }
+      return json;
+    }
+}
+
 module.exports = {
-    usuarioMov
+    usuarioMov,
+    links
 };

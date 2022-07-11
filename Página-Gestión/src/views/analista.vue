@@ -31,7 +31,7 @@
 
     <label v-if="this.a['mostrar1']==true">
     <br><br>
-        aaaaaaaaaaaaaaaaaaaaaa
+        <links></links>
     </label>
 
     <label v-if="this.a['mostrar2']==true">
@@ -47,6 +47,7 @@
 <script>
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
+import links from './links.vue';
 export default {
     name:"Dashboard",
     data(){
@@ -60,7 +61,8 @@ export default {
     },
     components:{
         Header,
-        Footer
+        Footer,
+        links
     },
     methods:{
             editar(id){
