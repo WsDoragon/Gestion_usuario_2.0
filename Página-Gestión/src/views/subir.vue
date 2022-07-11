@@ -7,6 +7,8 @@
         <div v-else>
           <h1>Lamentablemente el id proporcionado no es valido, o la fecha a caducado</h1>
         </div>
+
+        <button type="button" class="btn btn-primary" v-on:click="console.log('a')">SUBIR</button>
         
     </div>
 </template>
@@ -33,11 +35,13 @@ export default{
         let direccion = "http://localhost:3001/users/GetLinks";
         axios.get(direccion).then( data =>{
             this.links = data.data;
+            
+            for (let i in this.links){
+              this.exist.push(this.links[i].id);
+            }
+        
         });
-        for (let i in this.links){
-          this.exist.push(i.id)
-          console.log(i.id)
-        }
+        
   },
       methods:{
         analiza(){

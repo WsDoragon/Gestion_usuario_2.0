@@ -4,7 +4,7 @@
         <h1>{{titulo}}</h1>
         <input type="button" value="generarLink" v-on:click="generarLink">
         <ul title="links generados">
-            <li v-for="link in links" :key="link.id">{{`http://localhost:3000/subir/${link.id}`}}, {{link.expirationDate.toString().substring(0,10)}}</li>
+            <li v-for="link in links" :key="link.id">{{`http://localhost:8080/subir/${link.id}`}}, {{link.expirationDate.toString().substring(0,10)}}</li>
         </ul>
     </div>
 </template>

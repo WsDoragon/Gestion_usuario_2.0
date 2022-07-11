@@ -2,8 +2,8 @@ const config = {
     db: {
         user: "root",
         host: "localhost",
-        password: "123456",
-        database:"nodedb3"
+        password: "a",
+        database:"nodedb"
     }
   };
   module.exports = config;

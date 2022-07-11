@@ -14,8 +14,8 @@
 
 
 -- Volcando estructura de base de datos para nodedb
-CREATE DATABASE IF NOT EXISTS `nodedb2` /*!40100 DEFAULT CHARACTER SET utf8mb3 */;
-USE `nodedb2`;
+CREATE DATABASE IF NOT EXISTS `nodedb` /*!40100 DEFAULT CHARACTER SET utf8mb3 */;
+USE `nodedb`;
 
 -- Volcando estructura para tabla nodedb.disciplina
 CREATE TABLE IF NOT EXISTS `disciplina` (
