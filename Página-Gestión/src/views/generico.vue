@@ -2,7 +2,7 @@
     <div>
         
         <Header/>
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
+        <nav v-if="this.roles.includes('Administrador')" class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -53,6 +53,7 @@ export default {
         return {
             Listapusuarios:null,
             pagina:1,
+            roles: JSON.parse(sessionStorage.getItem("rol")),
             a:{"mostrar1" : true, "mostrar2":false}
         }
     },
