@@ -61,6 +61,8 @@ export default {
           "username" : this.usuario,
           "password": this.password
         };
+        localStorage.setItem("lastname", "ª");
+        console.log(localStorage.getItem("lastname"));
 
         axios.post('http://localhost:3001/users/login', json)
         .then( data =>{

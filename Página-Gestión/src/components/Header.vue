@@ -7,23 +7,36 @@
           <img :src="mySVG" width="180"/>
         </th>
           
-        <th> 
+        <th v-if="this.roles.includes('Gerente')"> 
           <b-navbar-brand href="http://localhost:8080/gerentePage">
             Gerente
           </b-navbar-brand>
         </th>
 
-        <th> 
+        <th v-if="this.roles.includes('Analista')"> 
            <b-navbar-brand href="http://localhost:8080/analistaPage">
             Analista
           </b-navbar-brand>
         </th>
 
-        <th> 
+        <th v-if="this.roles.includes('Administrador')"> 
            <b-navbar-brand href="http://localhost:8080/administradorPage">
             Administrador
           </b-navbar-brand>
         </th>
+
+        <th v-if="this.roles.includes('denegado')">
+          <b-navbar-brand>
+          Acceso denegado
+          </b-navbar-brand>
+        </th>
+
+        <th v-if="this.roles.includes('generico')">
+          <b-navbar-brand>
+          Usuario Generico
+          </b-navbar-brand>
+        </th>
+
 
         <th> 
            <b-navbar-brand>
@@ -46,19 +59,32 @@ export default {
   name: 'App',
   data(){
     return {
-      mySVG: require('../assets/inniving_logo.svg')
-      
+      mySVG: require('../assets/inniving_logo.svg'),
+      roles: JSON.parse(sessionStorage.getItem("rol")),
+      a: []
     }
   },
    methods:{
             cerrar(){
                 
                 this.$confirm("¿Seguro que desea cerrar sesión?", "","warning",{confirmButtonText:"Si",cancelButtonText:"Cancelar"}).then(() => {
+                    sessionStorage.clear();
                     this.$router.push('/')
                 });
                 }
    },
   mounted:function(){
+    if(this.roles == null){
+      this.roles="denegado"; 
+      this.a.push("denegado")
+      sessionStorage.setItem("rol", JSON.stringify(this.a));
+    }
+
+    if(this.roles.length == 0){
+      this.roles="generico"; 
+      this.a.push("generico")
+      sessionStorage.setItem("rol", JSON.stringify(this.a));
+    }
 
   }
 }

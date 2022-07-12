@@ -7,6 +7,8 @@ import administradorP from '../views/administrador.vue'
 import new_user from '../views/nuevo_user'
 import editar from '../views/editar.vue'
 import subir from '../views/subir.vue'
+import test from '../views/test.vue'
+import generico from '../views/generico.vue'
 
 Vue.use(VueRouter)
 
@@ -45,6 +47,16 @@ const routes = [
     path: '/subir/:id',
     name: 'subir',
     component: subir
+  },
+  {
+    path: '/generico',
+    name: 'generico',
+    component: generico
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: test
   }
 ]
 

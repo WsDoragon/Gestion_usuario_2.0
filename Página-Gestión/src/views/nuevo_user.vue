@@ -1,19 +1,20 @@
 <template>
     <div>
         <Header />
-            <div class="container">
+        <br><br>
+            <div v-if="this.roles.includes('Gerente')" class="container">
 
                 <form action="" class="form-horizontal">
                     <div class="form-group left">
                        <label for="" class="control-label col-sm-2">Nombre</label>
-                       <div class="col-sm-7">
+                       <div class="col-sm-9">
                           <input type="text" class="form-control" name="Nombre" id="Nombre" v-model="form.Nombre">
                        </div>
                     </div>
                     
                     <div class="form-group left">
                        <label for="" class="control-label col-sm-2">Apellido</label>
-                       <div class="col-sm-7">
+                       <div class="col-sm-9">
                           <input type="text" class="form-control" name="Apellido" id="Apellido" v-model="form.Apellido">
                        </div>
                     </div>
@@ -21,7 +22,7 @@
                     <div class="form-group left row">
                       <div class="col">
                             <label for="" class="control-label col-sm-3">Correo</label>
-                            <div class="col-sm-7">
+                            <div class="col-sm-9">
                                 <input type="text" class="form-control" name="correo" id="correo" v-model="form.correo">
                             </div>
                         </div>
@@ -37,7 +38,7 @@
                         </div>
                         <div class="col">
                           <label for="" class="control-label col-sm-7">RUT (sin puntos, con guión)</label>
-                          <div class="col-sm-4">
+                          <div class="col-sm-5">
                               <input type="text" class="form-control" name="rut" id="rut" v-model="form.rut">
                           </div>
                         </div> 
@@ -78,6 +79,7 @@ export default {
         return {
             rolSelect : [],
             rolOptions:[],
+            roles: JSON.parse(sessionStorage.getItem("rol")),
             form:{
                 "Nombre" : "",
                 "Apellido" :"",

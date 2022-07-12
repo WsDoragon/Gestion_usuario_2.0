@@ -2,7 +2,7 @@
     <div>
         <Header/>
 
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
+        <nav v-if="this.roles.includes('Gerente')" class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,7 +36,7 @@
 
 <br><br>
             
-            <div  v-if="this.a['mostrar1']==true" class="container izquierda">
+            <div  v-if="this.a['mostrar1']==true && this.roles.includes('Gerente')" class="container izquierda">
             
                 <button class="btn btn-primary" v-on:click="nuevo()" >Añadir nuevo usuario</button>
                 <br><br>
@@ -86,7 +86,7 @@ export default {
         return {
             Listapusuarios:null,
             a:{"mostrar1" : true, "mostrar2":false},
-
+            roles: JSON.parse(sessionStorage.getItem("rol")),
             pagina:1
         }
     },
@@ -122,6 +122,7 @@ export default {
             
     },
     mounted:function(){
+        console.log("roles almacenados:" + this.roles);
         let direccion = "http://localhost:3001/users/all";
         axios.get(direccion).then( data =>{
             console.log(data);

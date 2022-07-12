@@ -2,9 +2,7 @@
     <div>
         
         <Header/>
-
-
-<nav v-if="this.roles.includes('Analista')" class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,7 +12,7 @@
 
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <button class="btn btnbarra" v-on:click="texto('mostrar1')">Generador de enlaces</button>
+                <button class="btn btnbarra" v-on:click="texto('mostrar1')">Home</button>
               </a>
             </li>
 
@@ -29,15 +27,17 @@
         </div>
     </nav>
 
-    <label v-if="this.a['mostrar1']==true && this.roles.includes('Analista')" >
+    <label v-if="this.a['mostrar1']==true">
     <br><br>
-        <links></links>
+        Inserte aquí el home de usuario generico
     </label>
 
     <label v-if="this.a['mostrar2']==true">
     <br><br>
-        Coloque aquí funcionalidades
+        Coloque aquí funcionalidades de usuario generico
     </label>
+
+
 
         <Footer />
     </div>
@@ -47,21 +47,18 @@
 <script>
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
-import links from './links.vue';
 export default {
     name:"Dashboard",
     data(){
         return {
             Listapusuarios:null,
             pagina:1,
-            roles: JSON.parse(sessionStorage.getItem("rol")),
             a:{"mostrar1" : true, "mostrar2":false}
         }
     },
     components:{
         Header,
-        Footer,
-        links
+        Footer
     },
     methods:{
             editar(id){
@@ -93,7 +90,7 @@ export default {
 
     .btnbarra {
     color: #000;
-    background-color: #85DEFF;
+    background-color: #9EA3E6;
     font-weight: bold;
     }
 

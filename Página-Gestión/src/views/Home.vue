@@ -61,7 +61,6 @@ export default {
           "username" : this.usuario,
           "password": this.password
         };
-
         axios.post('http://localhost:3001/users/login', json)
         .then( data =>{
           console.log(data.data)
@@ -70,14 +69,19 @@ export default {
             this.error = true;
             this.error_msg = data.data.message;
           }
-
+          sessionStorage.setItem("rol", JSON.stringify(data["data"]["roles"]));
           if(data["data"]["rut"].length > 0 && data["data"]["roles"].includes("Gerente")){
             this.$router.push('gerentePage');
+            
+            
           }
           
           else{
             if(data["data"]["rut"].length > 0 && data["data"]["roles"].includes("Analista")){
             this.$router.push('analistaPage');
+            }
+            if(data["data"]["rut"].length > 0 && data["data"]["roles"].length == 0){
+              this.$router.push('generico');
             }
           }
         })

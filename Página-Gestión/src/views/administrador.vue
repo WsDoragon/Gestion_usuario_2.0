@@ -4,32 +4,32 @@
         <Header/>
 
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav v-if="this.roles.includes('Administrador')" class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <button class="btn btnbarra" v-on:click="texto('mostrar1')">Home</button>
-              </a>
-            </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <button class="btn btnbarra" v-on:click="texto('mostrar1')">Home</button>
+                </a>
+                </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <button class="btn btnbarra" v-on:click="texto('mostrar2')">Opción 2</button>
-              </a>
-            </li>
-            
+                <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <button class="btn btnbarra" v-on:click="texto('mostrar2')">Opción 2</button>
+                </a>
+                </li>
+                
 
-        </ul>  
-        </div>
-    </nav>
+            </ul>  
+            </div>
+        </nav>
 
-    <label v-if="this.a['mostrar1']==true">
+    <label v-if="this.a['mostrar1']==true && this.roles.includes('Administrador')">
     <br><br>
         Inserte aquí el home del administrador
     </label>
@@ -53,6 +53,7 @@ export default {
         return {
             Listapusuarios:null,
             pagina:1,
+            roles: JSON.parse(sessionStorage.getItem("rol")),
             a:{"mostrar1" : true, "mostrar2":false}
         }
     },
