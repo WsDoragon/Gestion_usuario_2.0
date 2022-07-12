@@ -131,6 +131,11 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 -- La exportación de datos fue deseleccionada.
 
+CREATE TABLE IF NOT EXISTS `Links` (
+  `id`  varchar(256),
+  `expirationDate` date
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;;
+
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` VALUES ("17270745-9","Joaquin","Contreras","joaquin.contreras@uach.cl","J2022");

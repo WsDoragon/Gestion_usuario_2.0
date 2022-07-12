@@ -22,6 +22,10 @@ enrutador.post('/login', async(req,res)=> {
     res.json(await sUsuarios.login(req.body))
 })
 
+enrutador.delete('/link/:id', async (req, res) => {
+    res.json(await sLinks.deleteLink(req.params.id));
+});
+
 enrutador.delete('/u/:id', async (req, res) => {
     res.json(await sUsuarios.deleteUser(req.params.id));
 });

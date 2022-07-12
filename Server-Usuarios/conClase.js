@@ -123,6 +123,11 @@ class links{
       }
       return json;
     }
+
+    async deleteLink(id){
+        const result = await db.query(`delete from Links where id =${id}`);
+        return result.affectedRows;
+    }
 }
 
 module.exports = {
