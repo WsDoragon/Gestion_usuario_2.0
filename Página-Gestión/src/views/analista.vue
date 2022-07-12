@@ -14,7 +14,7 @@
 
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <button class="btn btnbarra" v-on:click="texto('mostrar1')">Links</button>
+                <button class="btn btnbarra" v-on:click="texto('mostrar1')">Generador de enlaces</button>
               </a>
             </li>
 
@@ -54,9 +54,7 @@ export default {
         return {
             Listapusuarios:null,
             pagina:1,
-            mostrar:false,
-            mostrar2:false,
-            a:{"mostrar1" : false, "mostrar2":false}
+            a:{"mostrar1" : true, "mostrar2":false}
         }
     },
     components:{

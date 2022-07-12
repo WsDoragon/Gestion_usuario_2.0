@@ -85,9 +85,7 @@ export default {
     data(){
         return {
             Listapusuarios:null,
-            mostrar:false,
-            mostrar2:false,
-            a:{"mostrar1" : false, "mostrar2":false},
+            a:{"mostrar1" : true, "mostrar2":false},
 
             pagina:1
         }

@@ -1,8 +1,9 @@
 <template>
   <div id="app">
+        <h3>Ingrese fecha de caducidad del enlace</h3>
         <input type="date" v-model= "form.date">
-        <h1>{{titulo}}</h1>
-        <input type="button" value="generarLink" v-on:click="generarLink">
+        <br><br>
+        <input type="button" value="Generar enlace" v-on:click="generarLink">
         <ul title="links generados">
             <li v-for="link in links" :key="link.id">{{`http://localhost:8080/subir/${link.id}`}}, {{link.expirationDate.toString().substring(0,10)}}</li>
         </ul>

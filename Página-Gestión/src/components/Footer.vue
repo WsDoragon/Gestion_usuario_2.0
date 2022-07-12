@@ -2,7 +2,7 @@
 
         <div>
             <footer>
-                Gerente
+                INNOVING 2030
              </footer>
 
         </div>

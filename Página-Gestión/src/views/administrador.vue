@@ -14,7 +14,7 @@
 
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <button class="btn btnbarra" v-on:click="texto('mostrar1')">Home admin</button>
+                <button class="btn btnbarra" v-on:click="texto('mostrar1')">Home</button>
               </a>
             </li>
 
@@ -31,7 +31,7 @@
 
     <label v-if="this.a['mostrar1']==true">
     <br><br>
-        aaaaaaaaaaaaaaaaaaaaaa
+        Inserte aquí el home del administrador
     </label>
 
     <label v-if="this.a['mostrar2']==true">
@@ -53,9 +53,7 @@ export default {
         return {
             Listapusuarios:null,
             pagina:1,
-            mostrar:false,
-            mostrar2:false,
-            a:{"mostrar1" : false, "mostrar2":false}
+            a:{"mostrar1" : true, "mostrar2":false}
         }
     },
     components:{
