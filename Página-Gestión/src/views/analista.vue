@@ -2,7 +2,7 @@
     <div>
         
         <Header/>
-
+        <div>
 
 <nav v-if="this.roles.includes('Analista')" class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
     <br><br>
         Coloque aquí funcionalidades
     </label>
-
+</div>
         <Footer />
     </div>
 </template>

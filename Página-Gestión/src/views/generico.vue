@@ -2,7 +2,7 @@
     <div>
         
         <Header/>
-        <nav v-if="this.roles.includes('Administrador')" class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
+        <nav v-if="this.roles.includes('generico') || this.roles.length == 0" class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,7 +37,7 @@
         Coloque aquí funcionalidades de usuario generico
     </label>
 
-
+        
 
         <Footer />
     </div>
@@ -62,6 +62,9 @@ export default {
         Footer
     },
     methods:{
+        sleep(ms){
+            return new Promise(resolve => setTimeout(resolve, ms));
+        },
             editar(id){
                 this.$router.push('/editar/' + id);
             },
@@ -80,6 +83,9 @@ export default {
                 }
             }
 
+    },
+    mounted:function(){
+        this.sleep(5000);
     }
 }
 </script>
