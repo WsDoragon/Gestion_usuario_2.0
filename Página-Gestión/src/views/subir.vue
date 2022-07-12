@@ -6,7 +6,7 @@
           <button type="button" class="btn btn-primary" v-on:click="cicloTerminado()">SUBIR</button>
         </div>
         <div v-else>
-          <h1>Lamentablemente el id proporcionado no es valido, o la fecha a caducado</h1>
+          <h1>Este enlace ha caducado.</h1>
         </div>
         
     </div>
