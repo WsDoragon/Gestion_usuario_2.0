@@ -27,7 +27,7 @@
         </div>
     </nav>
 
-    <label v-if="this.a['mostrar1']==true">
+    <label v-if="this.a['mostrar1']==true && this.roles.includes('generico') || this.roles.length == 0">
     <br><br>
         Inserte aquí el home de usuario generico
     </label>
