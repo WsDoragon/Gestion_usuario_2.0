@@ -52,11 +52,6 @@ const routes = [
     path: '/generico',
     name: 'generico',
     component: generico
-  },
-  {
-    path: '/test',
-    name: 'test',
-    component: test
   }
 ]
 
