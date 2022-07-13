@@ -4,8 +4,11 @@
       <b-navbar toggleable="lg" type="dark" style="background-color: #000000
 ;">       
         <th>
-          <img :src="mySVG" width="180"/>
+          <img :src="mySVG" width="150"/>
+          <img src="@/assets/FCIB.png" id="icon" alt="User Icon" width="150"/>
+            
         </th>
+        
           
         <th v-if="this.roles.includes('Gerente')"> 
           <b-navbar-brand href="http://localhost:8080/gerentePage">
@@ -46,6 +49,7 @@
 
           
           <user/>
+          
       </b-navbar>
         
 </div>

@@ -7,7 +7,7 @@
 
                 <!-- Icon -->
                 <div class="fadeIn first pad">
-                  <img src="@/assets/logoA.png" id="icon" alt="User Icon" />
+                  <img src="@/assets/MarcaColor.png" id="icon" alt="User Icon" />
                 </div>
 
 
@@ -19,9 +19,9 @@
                     <input type="text" id="login" class="fadeIn second" name="login" placeholder="RUT (sin puntos, con guión)" v-model="usuario">
                   </div>
 
-                  <div class="form-group left btn">
+                  <div class="form-group left btn2">
                     <label for="" class="control-label col-sm-7">Contraseña:</label>
-                    <input type="password" id="password" class="fadeIn third control-label col-sm-100" name="login" placeholder="Contraseña" v-model="password">
+                    <input type="password" id="password" class="fadeIn third control-label col-sm-10" name="login" placeholder="Contraseña" v-model="password">
                   </div>
 
                   <input type="submit" class="fadeIn fourth" value="Log In">
@@ -96,6 +96,9 @@ export default {
 .btn{
   margin-left :50px
 }
+.btn2{
+  margin-left :60px
+}
 .left{
     text-align: left;
 }
@@ -153,7 +156,7 @@ h2 {
   background: #fff;
   padding: 30px;
   width: 90%;
-  max-width: 450px;
+  max-width: 500px;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);

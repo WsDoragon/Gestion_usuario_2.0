@@ -2,7 +2,8 @@
 
         <div>
             <footer>
-                INNOVING 2030
+                
+                <label>INNOVING 2030</label>
              </footer>
 
         </div>
