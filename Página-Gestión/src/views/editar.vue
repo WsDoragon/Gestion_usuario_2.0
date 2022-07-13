@@ -48,7 +48,7 @@
 
 
                     <div class="form-group flex pad">
-                      <button type="button" class="btn btn-primary" v-on:click="editar()" >Guardar</button>
+                      <button type="button" class="btn btn-primary" v-on:click="editar()" >Editar</button>
                       
                       <button type="button" class="btn btn-dark margen" v-on:click="salir()"  >Salir</button>
                     </div> 
