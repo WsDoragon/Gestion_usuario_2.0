@@ -3,7 +3,7 @@ Server y Cliente Usuarios
 
 Prerrequisitos:
 - Importar archivo "BaseDeDatos.sql" en mariaDB
-- introducir "user", "host", "password", "database" en ./server-usuarios/config.js para la ejecucion
+- introducir "user", "host", "password", "database = nodedb" en ./server-usuarios/config.js para la ejecucion
 
 Ejecucion:
 - Se debe realizar "npm install" en "Server-Usuarios" y en "Página-Gestión"
