@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `Links` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES ("17270745-9","Joaquin","Contreras","joaquin.contreras@uach.cl","J2022");
+INSERT INTO `usuario` VALUES ("a","Jorge","Gonzalez","a@uach.cl","a");
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
