@@ -1,11 +1,11 @@
-const express = require('express');
+export  const express = require('express');
 const enrutador = express.Router();
 const servicios = require('./conClase');
 const sUsuarios = new servicios.usuarioMov();
 const sLinks = new servicios.links();
 
 enrutador.post('/create', async (req, res) => {
-    a = await sUsuarios.create(req.body) 
+    var a = await sUsuarios.create(req.body) 
 
     console.log(`se recibe: +${a}`);
     if (a == 1){

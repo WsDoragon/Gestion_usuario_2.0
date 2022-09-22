@@ -1,4 +1,4 @@
-const db = require('./db');
+export const db = require('./db');
 const express = require("express");
 const cors = require("cors");
 
@@ -25,7 +25,15 @@ class usuarioMov {
     }
 
     async getAll(){
-        let json = [];
+        interface prueba{
+            "rut": string;
+            "nombre": string;
+            "apellido":string;
+            "correo": string; 
+            "roles": string;
+          };
+
+        let json:any[] = [];
         const result = await db.query(`SELECT * FROM usuario`);
         for (let i of result){
             let rol ="-"
@@ -35,7 +43,8 @@ class usuarioMov {
             for(let j of result2){
                 rol = rol+j.name+"-";
             }
-            let a = {"rut": i.rut, "nombre": i.nombre, "apellido":i.apellido, "correo": i.correo, "roles": rol};
+            let a:prueba = {"rut": i.rut, "nombre": i.nombre, "apellido":i.apellido, "correo": i.correo, "roles": rol};
+            
             json.push(a);
         }
         return json;
@@ -70,7 +79,7 @@ class usuarioMov {
 
     async login(creds){
         const a = 0;
-        let hehe = {
+        let hehe:any = {
             "rut": "",
             "roles": []
         }
@@ -80,7 +89,7 @@ class usuarioMov {
             const result2 = await db.query(`SELECT name from rol JOIN rol_usuario ON id = id_rol WHERE id_rut = "${creds.username}"`);
             hehe.rut = `${creds.username}`;
             for (let i = 0; i<result2.length; i++){
-                hehe.roles[i] = result2[i]["name"];
+                hehe.roles[i] =result2[i]["name"];
             }
             return hehe;
         }
@@ -115,7 +124,8 @@ class links{
     }
 
     async getAll(){
-        let json = [];
+        //let json = [];
+        let json:any[] = [];
         const result = await db.query(`SELECT * FROM Links`);
         for (let i of result){
           let a= {"id": i.id, "expirationDate":i.expirationDate };
