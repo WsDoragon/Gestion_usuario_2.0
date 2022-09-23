@@ -1,8 +1,9 @@
-export const config = {
+const config = {
     db: {
         user: "root",
         host: "localhost",
-        password: "1234",
+        password: "a",
         database:"nodedb"
     }
   };
+  module.exports = config;
