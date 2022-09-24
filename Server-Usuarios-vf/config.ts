@@ -1,4 +1,4 @@
-const config = {
+export const config = {
     db: {
         user: "root",
         host: "localhost",
@@ -6,4 +6,3 @@ const config = {
         database:"nodedb"
     }
   };
-  module.exports = config;
